@@ -1,0 +1,15 @@
+{{#with
+  (component contextual layer=
+    (hash
+      type='circle'
+      paint=(hash circle-radius=100)
+      source=(hash
+        type='geojson'
+        data=this.data
+      )
+    )
+  )
+  as |curried-aliased-layer|
+}}
+  <curried-aliased-layer/>
+{{/with}}

@@ -1,1 +1,22 @@
-{{yield}}
+{{#with
+  (component 'mapbox-gl'
+    initOptions=(hash
+      center=options.center
+      zoom=options.zoom
+      style=(hash version=8 sources=(hash ) layers=(array ))
+    )
+  ) as |curried-map-component|
+}}
+  <curried-map-component
+    ...attributes
+    as |map|
+  >
+    {{yield
+      (hash
+        layer=(component 'ember-cartography/adapters/mapbox-gl/layer'
+          contextual=map.layer
+        )
+      )
+    }}
+  </curried-map-component>
+{{/with}}

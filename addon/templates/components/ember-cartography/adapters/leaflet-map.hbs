@@ -1,4 +1,24 @@
-{{yield (component 'leaflet-map'
-  center=options.center
-  zoom=options.zoom
-)}}
+{{#with
+  (component 'leaflet-map'
+    center=options.center
+    zoom=options.zoom
+  ) as |curried-map-component|
+}}
+  <curried-map-component
+    ...attributes
+    as |map|
+  >
+    {{!-- todo: remove --}}
+    <map.tile
+      @url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+    />
+
+    {{yield
+      (hash
+        layer=(component 'ember-cartography/adapters/leaflet-map/layer'
+          contextual=map.geojson
+        )
+      )
+    }}
+  </curried-map-component>
+{{/with}}

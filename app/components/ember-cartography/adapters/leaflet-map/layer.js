@@ -1,0 +1,1 @@
+export { default } from 'ember-cartographer/components/ember-cartography/adapters/leaflet-map/layer';

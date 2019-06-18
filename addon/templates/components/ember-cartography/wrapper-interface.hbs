@@ -1,8 +1,13 @@
 {{#if this.addonComponentName}}
-  {{yield
-    (component
-      (concat 'ember-cartography/adapters/' this.addonComponentName)
-      options=this.options
-    )
-  }}
+  {{#with (component
+    (concat 'ember-cartography/adapters/' this.addonComponentName)
+    options=this.options
+  ) as |wrapped-dynamic-component|}}
+    <wrapped-dynamic-component
+      ...attributes
+      as |context|
+    >
+      {{yield context}}
+    </wrapped-dynamic-component>
+  {{/with}}
 {{/if}}

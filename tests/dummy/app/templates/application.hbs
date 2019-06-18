@@ -1,13 +1,23 @@
 <h2 id="title">Welcome to Ember Cartography</h2>
 
+<button {{action (mut this.engine) 'mapbox-gl'}}>
+  To mapbox-gl!
+</button>
+
+<button {{action (mut this.engine) 'leaflet'}}>
+  To leaflet!
+</button>
+
 <EmberCartography
   class='map'
-  @engine='leaflet'
+  @engine={{this.engine}}
   @options={{hash
-    center=(array -43 73)
+    center=(array 0 0)
     zoom=13
   }}
   as |cartographic|
 >
-  {{log cartographic}}
+  <cartographic.layer
+    @data={{cartographer-geojson this.myData}}
+  />
 </EmberCartography>

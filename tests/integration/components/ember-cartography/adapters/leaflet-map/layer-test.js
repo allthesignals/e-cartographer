@@ -3,22 +3,22 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | cartography-layer', function(hooks) {
+module('Integration | Component | ember-cartography/adapters/leaflet-map/layer', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<CartographyLayer />`);
+    await render(hbs`{{ember-cartography/adapters/leaflet-map/layer}}`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      <CartographyLayer>
+      {{#ember-cartography/adapters/leaflet-map/layer}}
         template block text
-      </CartographyLayer>
+      {{/ember-cartography/adapters/leaflet-map/layer}}
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');

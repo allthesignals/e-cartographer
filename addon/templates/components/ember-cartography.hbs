@@ -1,20 +1,8 @@
 <EmberCartography::WrapperInterface
   @addonComponentName={{this.componentName}}
   @options={{this.options}}
+  ...attributes
   as |curried-map-engine|
 >
-  <curried-map-engine
-    as |map-engine|
-  >
-    <map-engine
-      ...attributes
-      as |context|
-    >
-      {{yield (hash
-        layer=(component 'cartography-layer'
-          engine=context
-        )
-      )}}
-    </map-engine>
-  </curried-map-engine>
+  {{yield curried-map-engine}}
 </EmberCartography::WrapperInterface>
