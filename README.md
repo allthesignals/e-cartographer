@@ -7,14 +7,20 @@ Ember Cartographer:
  - UX-first, Accessibility-first
 
 ```
-<EmberCartography as |map|>
-  <map.layer
-    @data={{as-geojson myData}}
-    @onClick={{action this.layerClick}}
-  >
-
-  <map.layer>
+<EmberCartography
+  class='map'
+  @engine='leaflet'
+  @options={{hash
+    center=(array 0 0)
+    zoom=13
+  }}
+  as |cartographic|
+>
+  <cartographic.layer
+    @data={{cartographer-geojson this.myData}}
+  />
 </EmberCartography>
+
 ```
 
 ## Mapping Engines
