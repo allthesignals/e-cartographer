@@ -1,0 +1,8 @@
+{{#if this.addonComponentName}}
+  {{yield
+    (component
+      (concat 'ember-cartography/adapters/' this.addonComponentName)
+      options=this.options
+    )
+  }}
+{{/if}}

@@ -1,3 +1,13 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">Welcome to Ember Cartography</h2>
 
-{{outlet}}
+<EmberCartography
+  class='map'
+  @engine='leaflet'
+  @options={{hash
+    center=(array -43 73)
+    zoom=13
+  }}
+  as |cartographic|
+>
+  {{log cartographic}}
+</EmberCartography>
