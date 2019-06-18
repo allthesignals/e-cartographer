@@ -6,7 +6,7 @@ Ember Cartographer:
  - Fastboot-enhanced, out of the box
  - UX-first, Accessibility-first
 
-```
+```hbs
 <EmberCartography
   class='map'
   @engine='leaflet'
